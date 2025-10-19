@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG U+ 통합 데모 사이트</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Noto Sans KR', sans-serif; transition: all 0.3s; }
+    .hidden { display: none; }
+    .fade { animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- 상단바 -->
+  <div class="bg-black text-white text-sm py-1 px-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <span>Electronic Group</span>
+      <span class="opacity-70">개인 · 기업 · 소상공인</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <button class="text-xs">고객센터</button>
+      <button class="text-xs">로그인</button>
+    </div>
+  </div>
+
+  <!-- 헤더 -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-20">
+      <div class="flex items-center gap-6">
+        <span onclick="changePage('home')" class="text-2xl font-bold text-pink-600 cursor-pointer">Electronic Group</span>
+        <nav class="hidden lg:flex gap-1">
+          <button onclick="changePage('mobile')" class="menu-btn px-4 py-3 hover:bg-gray-100 rounded text-sm font-bold text-pink-600">모바일</button>
+          <button onclick="changePage('internet')" class="menu-btn px-4 py-3 hover:bg-gray-100 rounded text-sm">인터넷/IPTV</button>
+          <button onclick="changePage('mypage')" class="menu-btn px-4 py-3 hover:bg-gray-100 rounded text-sm">마이페이지</button>
+          <button onclick="changePage('benefit')" class="menu-btn px-4 py-3 hover:bg-gray-100 rounded text-sm">혜택</button>
+          <button onclick="changePage('support')" class="menu-btn px-4 py-3 hover:bg-gray-100 rounded text-sm">고객지원</button>
+          <button onclick="changePage('nugget')" class="menu-btn px-4 py-3 hover:bg-gray-100 rounded text-sm">너겟</button>
+        </nav>
+      </div>
+      <div class="hidden sm:flex items-center gap-2">
+        <input placeholder="검색어를 입력하세요" class="border rounded px-3 py-2 text-sm" />
+        <button class="px-3 py-2 text-sm border rounded">검색</button>
+      </div>
+      <button onclick="toggleMobileMenu()" class="lg:hidden px-3 py-2 border rounded">메뉴</button>
+    </div>
+
+    <!-- 모바일 메뉴 -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
+      <div class="px-4 py-4 space-y-2">
+        <button onclick="changePage('mobile')" class="w-full text-left py-2">모바일</button>
+        <button onclick="changePage('internet')" class="w-full text-left py-2">인터넷/IPTV</button>
+        <button onclick="changePage('mypage')" class="w-full text-left py-2">마이페이지</button>
+        <button onclick="changePage('benefit')" class="w-full text-left py-2">혜택</button>
+        <button onclick="changePage('support')" class="w-full text-left py-2">고객지원</button>
+        <button onclick="changePage('nugget')" class="w-full text-left py-2">너겟</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 컨텐츠 -->
+  <main class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- 홈 -->
+    <section id="home" class="fade">
+      <div class="grid md:grid-cols-3 gap-6 items-center mb-12">
+        <div class="col-span-2 bg-gray-100 rounded-xl overflow-hidden shadow">
+          <img src="이미지/메인 홈/제목을 입력해주세요.png" alt="banner" class="w-full h-64 object-cover">
+        </div>
+        <div class="bg-white p-6 rounded-xl border shadow">
+          <h3 class="font-semibold text-lg mb-2">유플러스 혜택</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">이벤트 바로가기</a></li>
+            <li><a href="#" class="hover:underline">멤버십 확인</a></li>
+            <li><a href="#" class="hover:underline">1:1 문의</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="bg-white border rounded-lg p-4 text-center shadow-sm cursor-pointer">
+          <div class="text-3xl mb-2">📱</div>
+          <div class="font-semibold">휴대폰</div>
+        </div>
+        <div class="bg-white border rounded-lg p-4 text-center shadow-sm cursor-pointer">
+          <div class="text-3xl mb-2">💳</div>
+          <div class="font-semibold">요금제</div>
+        </div>
+        <div class="bg-white border rounded-lg p-4 text-center shadow-sm cursor-pointer">
+          <div class="text-3xl mb-2">🌐</div>
+          <div class="font-semibold">인터넷</div>
+        </div>
+        <div class="bg-white border rounded-lg p-4 text-center shadow-sm cursor-pointer">
+          <div class="text-3xl mb-2">🎁</div>
+          <div class="font-semibold">멤버십</div>
+        </div>
+      </section>
+
+      <section class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white p-6 rounded-xl border shadow">
+          <h4 class="font-semibold mb-1">모바일 기기</h4>
+          <p class="text-sm text-gray-600 mb-3">최신 단말기와 액세서리</p>
+          <button class="text-sm text-pink-600 font-medium hover:underline">자세히</button>
+        </div>
+        <div class="bg-white p-6 rounded-xl border shadow">
+          <h4 class="font-semibold mb-1">인터넷/IPTV</h4>
+          <p class="text-sm text-gray-600 mb-3">요금제와 다양한 채널</p>
+          <button class="text-sm text-pink-600 font-medium hover:underline">자세히</button>
+        </div>
+        <div class="bg-white p-6 rounded-xl border shadow">
+          <h4 class="font-semibold mb-1">멤버십</h4>
+          <p class="text-sm text-gray-600 mb-3">영화·쇼핑·음식 혜택</p>
+          <button class="text-sm text-pink-600 font-medium hover:underline">자세히</button>
+        </div>
+      </section>
+
+      <section class="bg-white p-6 rounded-xl border shadow">
+        <h3 class="font-semibold text-lg mb-2">공지사항·새소식</h3>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>서비스 점검 안내 - 2025-10-20 06:00~15:00 서버점검 예정입니다</li>
+          <li>프로모션: 온라인 한정 요금제 출시</li>
+          <li>홈 결합상품 개선 안내</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- 모바일 -->
+    <section id="mobile" class="hidden fade">
+      <h1 class="text-3xl font-bold mb-6">모바일</h1>
+      <div class="flex gap-2 overflow-x-auto mb-8 pb-2 border-b">
+        <button onclick="changeTab('device')" id="tab-device" class="tab-btn px-4 py-2 rounded-t-md text-sm font-medium bg-pink-600 text-white">모바일 기기</button>
+        <button onclick="changeTab('plan')" id="tab-plan" class="tab-btn px-4 py-2 rounded-t-md text-sm font-medium bg-gray-100 hover:bg-gray-200">요금제</button>
+        <button onclick="changeTab('sim')" id="tab-sim" class="tab-btn px-4 py-2 rounded-t-md text-sm font-medium bg-gray-100 hover:bg-gray-200">유심/eSIM</button>
+        <button onclick="changeTab('accessory')" id="tab-accessory" class="tab-btn px-4 py-2 rounded-t-md text-sm font-medium bg-gray-100 hover:bg-gray-200">액세서리</button>
+      </div>
+
+      <div id="tab-content-device" class="fade">
+<!-- 📱 스마트폰 카드 목록 -->
+<div class="grid md:grid-cols-4 gap-6">
+
+  <!-- iPhone 17 -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/일반 17.png" alt="iPhone 17" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">iPhone 17</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('iphone17')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- iPhone Air -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/17에어.png" alt="iPhone Air" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">iPhone Air</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('iphoneair')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- iPhone 17 Pro -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/17프로.png" alt="iPhone 17 Pro" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">iPhone 17 Pro</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('iphone17pro')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- iPhone 17 Pro Max -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/17프로맥스.png" alt="iPhone 17 Pro Max" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">iPhone 17 Pro Max</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('iphone17promax')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- 갤럭시 Z Fold7 -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/폴드7.png" alt="갤럭시 Z Fold7" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">갤럭시 Z Fold7</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('fold7')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- 갤럭시 Z Flip7 -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/플립7.png" alt="갤럭시 Z Flip7" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">갤럭시 Z Flip7</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('flip7')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- 갤럭시 S25 FE -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/S25FE.png" alt="갤럭시 S25 FE" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">갤럭시 S25 FE</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('s25fe')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- 갤럭시 S25 -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/S25.png" alt="갤럭시 S25" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">갤럭시 S25</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('s25')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- 갤럭시 S25+ -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/S25+.png" alt="갤럭시 S25+" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">갤럭시 S25+</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('s25plus')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- 갤럭시 S25 Edge -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/S25엣지.png" alt="갤럭시 S25 Edge" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">갤럭시 S25 Edge</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('s25edge')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+  <!-- ✅ 갤럭시 S25 Ultra -->
+  <div class="bg-white border rounded-xl shadow p-4">
+    <img src="이미지/모바일/S25울트라.png" alt="갤럭시 S25 Ultra" class="rounded-xl mb-3" />
+    <h4 class="font-semibold mb-1">갤럭시 S25 Ultra</h4>
+    <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+    <button onclick="openModal('s25ultra')" class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+  </div>
+
+</div>
+
+<!-- 📦 모달들 -->
+<!-- 각 제품별 모달 -->
+<div id="modal-iphone17" class="modal hidden"><div class="modal-box"><button onclick="closeModal('iphone17')" class="modal-close">&times;</button><h2>iPhone 17</h2><img src="이미지/모바일/일반 17.png"><p>혁신적인 카메라 시스템과 향상된 배터리 수명을 자랑하는 최신 아이폰입니다.</p></div></div>
+<div id="modal-iphoneair" class="modal hidden"><div class="modal-box"><button onclick="closeModal('iphoneair')" class="modal-close">&times;</button><h2>iPhone Air</h2><img src="이미지/모바일/17에어.png"><p>가볍고 세련된 디자인, 강력한 A17 칩셋으로 효율적인 퍼포먼스를 제공합니다.</p></div></div>
+<div id="modal-iphone17pro" class="modal hidden"><div class="modal-box"><button onclick="closeModal('iphone17pro')" class="modal-close">&times;</button><h2>iPhone 17 Pro</h2><img src="이미지/모바일/17프로.png"><p>프로 카메라 성능과 고급스러운 티타늄 디자인이 돋보이는 아이폰 17 프로입니다.</p></div></div>
+<div id="modal-iphone17promax" class="modal hidden"><div class="modal-box"><button onclick="closeModal('iphone17promax')" class="modal-close">&times;</button><h2>iPhone 17 Pro Max</h2><img src="이미지/모바일/17프로맥스.png"><p>가장 큰 디스플레이와 최고 성능의 카메라를 탑재한 프리미엄 아이폰입니다.</p></div></div>
+<div id="modal-fold7" class="modal hidden"><div class="modal-box"><button onclick="closeModal('fold7')" class="modal-close">&times;</button><h2>갤럭시 Z Fold7</h2><img src="이미지/모바일/폴드7.png"><p>대화면 폴더블 스마트폰으로 멀티태스킹에 최적화된 혁신적인 폼팩터를 제공합니다.</p></div></div>
+<div id="modal-flip7" class="modal hidden"><div class="modal-box"><button onclick="closeModal('flip7')" class="modal-close">&times;</button><h2>갤럭시 Z Flip7</h2><img src="이미지/모바일/플립7.png"><p>한 손에 쏙 들어오는 폴더블 디자인으로 스타일과 편의성을 모두 잡았습니다.</p></div></div>
+<div id="modal-s25fe" class="modal hidden"><div class="modal-box"><button onclick="closeModal('s25fe')" class="modal-close">&times;</button><h2>갤럭시 S25 FE</h2><img src="이미지/모바일/S25FE.png"><p>합리적인 가격대에 강력한 성능을 제공하는 S25 시리즈의 실속형 모델입니다.</p></div></div>
+<div id="modal-s25" class="modal hidden"><div class="modal-box"><button onclick="closeModal('s25')" class="modal-close">&times;</button><h2>갤럭시 S25</h2><img src="이미지/모바일/S25.png"><p>새로운 AI 카메라와 강화된 디스플레이로 더 생생한 경험을 제공합니다.</p></div></div>
+<div id="modal-s25plus" class="modal hidden"><div class="modal-box"><button onclick="closeModal('s25plus')" class="modal-close">&times;</button><h2>갤럭시 S25+</h2><img src="이미지/모바일/S25+.png"><p>더 넓은 화면과 고성능 배터리를 탑재한 S25 시리즈의 업그레이드 버전입니다.</p></div></div>
+<div id="modal-s25edge" class="modal hidden"><div class="modal-box"><button onclick="closeModal('s25edge')" class="modal-close">&times;</button><h2>갤럭시 S25 Edge</h2><img src="이미지/모바일/S25엣지.png"><p>엣지 디스플레이로 몰입감 넘치는 비주얼을 제공하는 최신 갤럭시 모델입니다.</p></div></div>
+<div id="modal-s25ultra" class="modal hidden"><div class="modal-box"><button onclick="closeModal('s25ultra')" class="modal-close">&times;</button><h2>갤럭시 S25 Ultra</h2><img src="이미지/모바일/S25울트라.png"><p>200MP 카메라, S펜, 향상된 인공지능 기능이 탑재된 삼성의 최상급 스마트폰입니다.</p></div></div>
+
+<!-- 🎨 공통 모달 스타일 -->
+<style>
+.modal {position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; z-index:50;}
+.modal.hidden {display:none;}
+.modal-box {background:white; border-radius:1rem; padding:1.5rem; max-width:400px; width:90%; position:relative; text-align:center;}
+.modal-box img {border-radius:0.75rem; margin-bottom:1rem;}
+.modal-close {position:absolute; top:10px; right:15px; font-size:1.5rem; color:#aaa; cursor:pointer;}
+.modal-close:hover {color:#333;}
+.modal-box h2 {font-size:1.5rem; font-weight:bold; color:#db2777; margin-bottom:0.5rem;}
+.modal-box p {color:#555; font-size:0.9rem;}
+</style>
+
+<!-- 🧠 모달 제어 스크립트 -->
+<script>
+function openModal(id){document.getElementById("modal-"+id).classList.remove("hidden");}
+function closeModal(id){document.getElementById("modal-"+id).classList.add("hidden");}
+</script>
+        </div>
+      </div>
+
+      <div id="tab-content-plan" class="hidden fade"><p>요금제 관련 내용이 여기에 표시됩니다.</p></div>
+      <div id="tab-content-sim" class="hidden fade"><p>유심 및 eSIM 관련 안내 페이지입니다.</p></div>
+      <div id="tab-content-accessory" class="hidden fade"><p>스마트폰 액세서리 안내 영역입니다.</p></div>
+    </section>
+
+    <!-- 인테넷 -->
+    <section id="internet" class="hidden fade">
+      <h1 class="text-2xl font-bold mb-3">인터넷/IPTV</h1>
+      <div id="tab-content-device" class="fade">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white border rounded-xl shadow p-4">
+            <img
+            src="c:\Users\pks07\Downloads\20250910-082740-498-LMBg4DSK.png"
+            alt="Playlist 1"
+            class="rounded-xl mb-3"
+          />
+            <h4 class="font-semibold mb-1">아이폰 17 프로맥스</h4>
+            <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+            <button class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+          </div>
+          <div class="bg-white border rounded-xl shadow p-4">
+            <img
+            src="c:\Users\pks07\Downloads\20250910-082740-498-LMBg4DSK.png"
+            alt="Playlist 1"
+            class="rounded-xl mb-3"
+          />
+          <h4 class="font-semibold mb-1">아이폰 17 프로맥스</h4>
+            <p class="text-sm text-gray-600 mb-2">최신 스마트폰 기기 소개 영역입니다.</p>
+            <button class="text-pink-600 text-sm font-medium hover:underline">자세히 보기</button>
+          </div>
+    </section>
+
+    <!-- 마이페이지-->
+    <section id="mypage" class="hidden fade">
+      <h1 class="text-2xl font-bold mb-3">마이페이지</h1>
+      <p>요금조회, 납부, 가입정보 등 나의 정보 관리 페이지입니다.</p>
+    </section>
+
+    <!-- 혜택 -->
+    <section id="benefit" class="hidden fade">
+      <h1 class="text-2xl font-bold mb-3">혜택</h1>
+      <p>멤버십과 이벤트 관련 혜택 안내 페이지입니다.</p>
+    </section>
+
+    <!-- 고객지원 -->
+    <section id="support" class="hidden fade">
+      <h1 class="text-2xl font-bold mb-3">고객지원</h1>
+      <p>공지사항과 FAQ, 자가진단 가이드 등을 확인할 수 있습니다.</p>
+    </section>
+
+    <!-- 너겟 -->
+    <section id="nugget" class="hidden fade">
+      <h1 class="text-2xl font-bold mb-3">너겟</h1>
+      <p>너겟 서비스 소개 페이지입니다.</p>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="mt-12 border-t pt-6 text-sm text-gray-600">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <h4 class="font-semibold mb-1">Electronic Group</h4>
+          <p>서울특별시 용산구 한강대로 32<br/>고객센터: 1544-0010</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-1">서비스</h4>
+          <ul class="space-y-1">
+            <li>모바일</li>
+            <li>인터넷/IPTV</li>
+            <li>멤버십</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-1">법적 안내</h4>
+          <ul class="space-y-1">
+            <li>이용약관</li>
+            <li>개인정보처리방침</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 text-center text-xs text-gray-400">© 2025 Electronic Group Unified Template. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script>
+    function changePage(page) {
+      document.querySelectorAll("main section").forEach(sec => sec.classList.add("hidden"));
+      document.getElementById(page).classList.remove("hidden");
+      document.getElementById(page).classList.add("fade");
+      document.querySelectorAll(".menu-btn").forEach(btn => btn.classList.remove("font-bold", "text-pink-600"));
+      const found = Array.from(document.querySelectorAll(".menu-btn")).find(btn => btn.textContent.includes(page === "internet" ? "인터넷" : page === "mypage" ? "마이페이지" : page === "benefit" ? "혜택" : page === "support" ? "고객지원" : page === "nugget" ? "너겟" : "모바일"));
+      if (found) found.classList.add("font-bold", "text-pink-600");
+      document.getElementById("mobileMenu").classList.add("hidden");
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    }
+
+    function changeTab(tab) {
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("bg-pink-600", "text-white"));
+      document.getElementById("tab-" + tab).classList.add("bg-pink-600", "text-white");
+      document.querySelectorAll("[id^='tab-content-']").forEach(el => el.classList.add("hidden"));
+      document.getElementById("tab-content-" + tab).classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
